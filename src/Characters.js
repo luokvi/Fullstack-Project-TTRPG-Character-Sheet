@@ -2,17 +2,17 @@ import React from 'react'
 import { useSelector} from 'react-redux'
 
 const Characters = () => {
-    const charas = useSelector(({characters}) => {
+    const charas = useSelector(({ characters }) => {
         return characters
     })
-
+    console.log(charas)
 
     return (
         <div>
             <ul>
                 {charas.map(chara => 
                     <li key={chara.id}>
-                        {chara.name}, {chara.class} {chara.level}lvl
+                        <b>{chara.name}</b>, {chara.level} lvl {chara.class}
                     </li>
                     )}
             </ul>
