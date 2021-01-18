@@ -10,9 +10,9 @@ const characterReducer = (state = [], action) => {
     }
 }
 
-export const initializeCharacters = () => {
+export const initializeCharacters = (characters) => {
     return async dispatch => {
-        const characters = characterService.getAll()
+        const characters = await characterService.getAll()
         dispatch({
             type: 'INIT_CHARACTERS',
             data: characters,
