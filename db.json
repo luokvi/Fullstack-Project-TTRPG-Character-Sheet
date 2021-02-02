@@ -12,10 +12,10 @@
         "luck": 6,
         "attack": 12,
         "armor": 13,
-        "magic attack": 8,
-        "magic armor": 10,
+        "magicAttack": 8,
+        "magicArmor": 10,
         "hitpoints": 50,
-        "current hitpoints": 45
+        "currentHitpoints": 45
     },
 
     {
@@ -31,10 +31,10 @@
         "luck": 6,
         "attack": 8,
         "armor": 13,
-        "magic attack": 13,
-        "magic armor": 10,
+        "magicAttack": 13,
+        "magicArmor": 10,
         "hitpoints": 50,
-        "current hitpoints": 50
+        "currentHitpoints": 50
     }
 
   ]
