@@ -1,18 +1,17 @@
 import React from 'react'
-import { useSelector} from 'react-redux'
+import { Link } from 'react-router-dom'
 
-const Characters = () => {
-    const charas = useSelector(({ characters }) => {
-        return characters
-    })
-    console.log(charas)
+const Characters = ({ charas }) => {
+    
 
     return (
         <div>
             <ul>
                 {charas.map(chara => 
                     <li key={chara.id}>
-                        <b>{chara.name}</b>, {chara.level} lvl {chara.class}
+                        <Link to={`/character/${chara.id}`}>
+                            <b>{chara.name}</b>, {chara.level} lvl {chara.class}
+                        </Link>
                     </li>
                     )}
             </ul>

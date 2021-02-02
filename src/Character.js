@@ -1,6 +1,10 @@
 import React from 'react'
+import { useParams } from 'react-router-dom'
 
-const Character = ({ chara }) => {
+const Character = ({ charas }) => {
+    const id = useParams().id
+    const chara = charas.find(c => c.id === Number(id))
+    
     return (
         <div>
             <h2>{chara.name},</h2>
