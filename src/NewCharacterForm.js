@@ -1,10 +1,12 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import { newCharacter } from './reducers/characterReducer'
 import characterService from './services/characters'
 
 const NewCharacterForm = () => {
     const dispatch = useDispatch()
+    const history = useHistory()
 
     const submit = async (event) => {
         event.preventDefault()
@@ -25,11 +27,12 @@ const NewCharacterForm = () => {
             "hitpoints": event.target.hp.value,
             "currentHitpoints": event.target.hp.value,
         }
-        event.target.name.value = ''
-        event.target.lvl.value = ''
-
+        
         const newChara = await characterService.addCharacter(content)
         dispatch(newCharacter(newChara))
+
+        //move back to the front page
+        history.push('/')
     }
 
     return(
