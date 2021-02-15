@@ -10,23 +10,23 @@ const NewCharacterForm = () => {
         event.preventDefault()
         const content = {
             "name": event.target.name.value,
-            "level": event.target.level.value,
-            "class": "cleric",
-            "strength": 6,
-            "dexterity": 8,
-            "vitality": 9,
-            "magic": 9,
-            "spirit": 7,
-            "luck": 6,
-            "attack": 8,
-            "armor": 13,
-            "magicAttack": 13,
-            "magicArmor": 10,
-            "hitpoints": 50,
-            "currentHitpoints": 40
+            "level": event.target.lvl.value,
+            "class": event.target.class.value,
+            "strength": event.target.str.value,
+            "dexterity": event.target.dex.value,
+            "vitality": event.target.vit.value,
+            "magic": event.target.mgc.value,
+            "spirit": event.target.sprt.value,
+            "luck": event.target.lck.value,
+            "attack": event.target.atk.value,
+            "armor": event.target.armor.value,
+            "magicAttack": event.target.mgcatk.value,
+            "magicArmor": event.target.mgcarmor.value,
+            "hitpoints": event.target.hp.value,
+            "currentHitpoints": event.target.hp.value,
         }
         event.target.name.value = ''
-        event.target.level.value = ''
+        event.target.lvl.value = ''
 
         const newChara = await characterService.addCharacter(content)
         dispatch(newCharacter(newChara))
@@ -34,10 +34,56 @@ const NewCharacterForm = () => {
 
     return(
         <div>
-            <h2>New Character</h2>
+            <h3>New Character</h3>
             <form onSubmit={submit}>
-                <input name="name"/>
-                <input name="level"/>
+                <label>Name:</label>
+                <input name="name" type="text"/> <br/>
+
+                <label>Class:</label> <br/>
+                <input type="radio" name="class" value="cleric" />
+                <label>Cleric</label>
+                <input type="radio" name="class" value="mage" />
+                <label>Mage</label>
+                <input type="radio" name="class" value="soldier" />
+                <label>Soldier</label>
+                <br/>
+
+                <label>Level:</label>
+                <input name="lvl" type="number" min="1" max="99" /> <br/>
+
+                <label>Strength:</label>
+                <input name="str" type="number" min="1" max="20" /> <br/>
+
+                <label>Dexterity:</label>
+                <input name="dex" type="number" min="1" max="20"/> <br/>
+
+                <label>Vitality:</label>
+                <input name="vit" type="number" min="1" max="20"/> <br/>
+
+                <label>Magic:</label>
+                <input name="mgc" type="number" min="1" max="20"/> <br/>
+
+                <label>Spirit:</label>
+                <input name="sprt" type="number" min="1" max="20"/> <br/>
+
+                <label>Luck:</label>
+                <input name="lck" type="number" min="1" max="20"/> <br/>
+
+                <label>Attack:</label>
+                <input name="atk" type="number" min="1" max="20"/> <br/>
+
+                <label>Armor:</label>
+                <input name="armor" type="number" min="1" max="20"/> <br/>
+
+                <label>Magic Attack:</label>
+                <input name="mgcatk" type="number" min="1" max="20"/> <br/>
+
+                <label>Magic Armor:</label>
+                <input name="mgcarmor" type="number" min="1" max="20"/> <br/>
+
+                <label>Hitpoints:</label>
+                <input name="hp" type="number" min="10" max="200"/> <br/>
+
                 <button type="submit">Add</button>
             </form>
         </div>
