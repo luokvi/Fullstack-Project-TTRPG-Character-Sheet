@@ -15,6 +15,10 @@ const Characters = ({ charas }) => {
                     </li>
                     )}
             </ul>
+
+            <Link to={'/new'}>
+                <p>+ Add New +</p>
+            </Link>
         </div>
     )
 }

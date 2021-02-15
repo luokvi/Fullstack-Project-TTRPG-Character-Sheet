@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import { initializeCharacters } from './reducers/characterReducer'
 import Characters from './Characters'
 import Character from './Character'
+import NewCharacterForm from './NewCharacterForm'
 
 const App = () => {
   const dispatch = useDispatch()
@@ -25,6 +26,9 @@ const App = () => {
         <Switch>
           <Route path="/character/:id">
             <Character charas={charas}/>
+          </Route>
+          <Route path="/new">
+            <NewCharacterForm />
           </Route>
           <Route path="/">
             <Characters charas={charas}/>
