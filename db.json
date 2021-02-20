@@ -14,7 +14,17 @@
         "magicAttack": 8,
         "magicArmor": 10,
         "hitpoints": 50,
-        "currentHitpoints": 45
+        "currentHitpoints": 45,
+        "equipment": {
+            "weapon": {
+                "name": "Buster Sword",
+                "attack": 2
+            },
+            "armor": {
+                "name": "Speedy Boots",
+                "speed": 2
+            }
+        }
     },
 
     {
@@ -32,8 +42,18 @@
         "magicAttack": 13,
         "magicArmor": 10,
         "hitpoints": 50,
-        "currentHitpoints": 50
+        "currentHitpoints": 50,
+        "equipment": {
+            "weapon": {
+                "name": "Mythril Staff",
+                "magicAttack": 1
+            },
+            "armor": {
+                "name": "Leather Armor",
+                "armor": 1
+            }
+        }
     }
-
   ]
+
 }
