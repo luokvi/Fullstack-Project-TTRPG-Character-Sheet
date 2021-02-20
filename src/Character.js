@@ -17,7 +17,6 @@ const Character = ({ charas }) => {
                         <th>dex</th>
                         <th>vit</th>
                         <th>mgc</th>
-                        <th>sprt</th>
                         <th>lck</th>
                     </tr>
                     <tr>
@@ -25,7 +24,6 @@ const Character = ({ charas }) => {
                         <td>{chara.dexterity}</td>
                         <td>{chara.vitality}</td>
                         <td>{chara.magic}</td>
-                        <td>{chara.spirit}</td>
                         <td>{chara.luck}</td>
                     </tr>
                 </tbody>

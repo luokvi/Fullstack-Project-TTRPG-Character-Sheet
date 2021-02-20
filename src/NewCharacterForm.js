@@ -18,7 +18,6 @@ const NewCharacterForm = () => {
             "dexterity": event.target.dex.value,
             "vitality": event.target.vit.value,
             "magic": event.target.mgc.value,
-            "spirit": event.target.sprt.value,
             "luck": event.target.lck.value,
             "attack": event.target.atk.value,
             "armor": event.target.armor.value,
@@ -65,9 +64,6 @@ const NewCharacterForm = () => {
 
                 <label>Magic:</label>
                 <input name="mgc" type="number" min="1" max="20"/> <br/>
-
-                <label>Spirit:</label>
-                <input name="sprt" type="number" min="1" max="20"/> <br/>
 
                 <label>Luck:</label>
                 <input name="lck" type="number" min="1" max="20"/> <br/>
