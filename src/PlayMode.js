@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
-
+import { useDispatch } from 'react-redux'
+import characterService from './services/characters'
+import { updateCharacter } from './reducers/characterReducer'
 
 const PlayMode = ({ chara }) => {
+    const dispatch = useDispatch()
     const [ hp, setHitpoints ] = useState(chara.currentHitpoints)
 
     const heal = ( event ) => {
@@ -17,6 +20,14 @@ const PlayMode = ({ chara }) => {
         if (newHp < 0) { newHp = 0 }
         setHitpoints(newHp)
         event.target.damage.value = null
+    }
+
+    const save = async () => {
+        chara.currentHitpoints = hp
+        
+        const updated = await characterService.update(chara.id, chara)
+        console.log(updated)
+        dispatch(updateCharacter(chara.id, updated))
     }
 
     const stat = (character, weapon, armor) => {
@@ -46,6 +57,8 @@ const PlayMode = ({ chara }) => {
                 <input name="damage" type="number" min="1"/>
                 <button type="submit">Damage</button>
             </form>
+
+            <button onClick={save}>save</button>
         </div>
     )
 }

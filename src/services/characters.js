@@ -13,4 +13,10 @@ const addCharacter = async (object) => {
   return response.data
 }
 
-export default { getAll, addCharacter }
+const update = async (id, object) => {
+  const response = await axios.put(`${baseUrl}/${id}`, object)
+
+  return response.data
+}
+
+export default { getAll, addCharacter, update }
