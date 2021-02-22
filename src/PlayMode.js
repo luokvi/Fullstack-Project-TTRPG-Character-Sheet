@@ -9,12 +9,14 @@ const PlayMode = ({ chara }) => {
         let newHp = hp - (-event.target.heal.value) //adding would change object to string
         if (newHp > chara.hitpoints) { newHp = chara.hitpoints }
         setHitpoints(newHp)
+        event.target.heal.value = null
     }
     const damage = ( event ) => {
         event.preventDefault()
         let newHp = hp - event.target.damage.value
         if (newHp < 0) { newHp = 0 }
         setHitpoints(newHp)
+        event.target.damage.value = null
     }
 
     const stat = (character, weapon, armor) => {
