@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import PlayMode from './PlayMode'
 
@@ -12,9 +12,9 @@ const StatsLine = ({ label, value}) =>{
   }
 
 const Character = ({ charas }) => {
+    const [onPlaymode, setPlaymode] = useState(false)
     const id = useParams().id
     const chara = charas.find(c => c.id === Number(id))
-
     if (!chara){
         return(
             <div>
@@ -22,6 +22,8 @@ const Character = ({ charas }) => {
             </div>
         )
     }
+
+    const togglePlaymode = () => { setPlaymode(!onPlaymode) }
 
     const stat = (character, weapon, armor) => {
         if (!weapon && !armor){
@@ -67,10 +69,14 @@ const Character = ({ charas }) => {
             <p>Weapon: {weapon.name}</p>
             <p>Armor: {armor.name}</p>
 
-            <div>
-                <h2>PlayMode!</h2>
-                <PlayMode chara={chara}/>
-            </div>
+            {
+                onPlaymode
+                ?<div>
+                    <button onClick={togglePlaymode}>close</button>
+                    <PlayMode chara={chara} />
+                </div>
+                : <button onClick={togglePlaymode}>Enter playmode</button>
+            }
         </div>
     )
 }
