@@ -26,7 +26,6 @@ const PlayMode = ({ chara }) => {
         chara.currentHitpoints = hp
         
         const updated = await characterService.update(chara.id, chara)
-        console.log(updated)
         dispatch(updateCharacter(chara.id, updated))
     }
 
