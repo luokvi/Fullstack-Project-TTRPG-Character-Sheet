@@ -1,5 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
+import PlayMode from './PlayMode'
 
 const Character = ({ charas }) => {
     const id = useParams().id
@@ -72,6 +73,11 @@ const Character = ({ charas }) => {
             <p><b>Equipment</b></p>
             <p>Weapon: {weapon.name}</p>
             <p>Armor: {armor.name}</p>
+
+            <div>
+                <h2>PlayMode!</h2>
+                <PlayMode chara={chara}/>
+            </div>
         </div>
     )
 }
