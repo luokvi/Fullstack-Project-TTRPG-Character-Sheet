@@ -18,13 +18,46 @@
       "currentHitpoints": 45,
       "equipment": {
         "weapon": {
+          "id": 3,
           "name": "Buster Sword",
           "attack": 2
         },
         "armor": {
+          "id": 1,
           "name": "Speedy Boots",
           "speed": 2
         }
+      },
+      "items": {
+        "weapons": [
+          {
+            "id": 1,
+            "name": "Dull Sword",
+            "attack": -5
+          },
+          {
+            "id": 2,
+            "name": "Soldier Sword",
+            "attack": 2
+          },
+          {
+            "id": 3,
+            "name": "Buster Sword",
+            "attack": 2
+          }
+        ],
+        "armors": [
+          {
+            "id": 1,
+            "name": "Speedy Boots",
+            "speed": 2
+          },
+          {
+            "id": 2,
+            "name": "Chain mail",
+            "armor": 2
+          }
+        ]
       }
     },
     {
