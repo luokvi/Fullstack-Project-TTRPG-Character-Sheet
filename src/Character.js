@@ -42,7 +42,7 @@ const Character = ({ charas }) => {
     
     return (
         <div>
-            <h2>{chara.name},</h2>
+            <h2>{chara.name}</h2>
             <h3>{chara.class}, level {chara.level}</h3>
             <p>HP: {chara.currentHitpoints}/{stat(chara.hitpoints, weapon.hitpoints, armor.hitpoints)}</p>
             
