@@ -25,7 +25,7 @@
         "armor": {
           "id": 1,
           "name": "Speedy Boots",
-          "speed": 2
+          "dexterity": 2
         }
       },
       "items": {

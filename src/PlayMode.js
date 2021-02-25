@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import characterService from './services/characters'
 import { updateCharacter } from './reducers/characterReducer'
+import Stat, { stat } from './Stats'
 
 const Dropdown = ({ chara, items }) => {
     let rest, label
@@ -10,12 +11,10 @@ const Dropdown = ({ chara, items }) => {
             rest = chara.items.weapons
             label = "weapons"
             break
-
         case "armor":
             rest = chara.items.armors
             label = "armor"
             break
-
         default:
             return (<p>something went wrong</p>)
     }
@@ -26,6 +25,7 @@ const Dropdown = ({ chara, items }) => {
 const itemlist = (rest, label) => {
     return(
         <select id={label} name={label}>
+            <option value="empty" defaultValue></option>
             {rest.map(item => 
                 <option value={item.id} key={item.name}>{item.name}</option>
             )}
@@ -56,14 +56,18 @@ const PlayMode = ({ chara }) => {
 
     const equip = ( event ) => {
         event.preventDefault()
-        const wId = event.target.weapons.value
-        const newWeapon = chara.items.weapons.find(w => w.id === Number(wId))
-        setWeapon(newWeapon)
-
-        const aId = event.target.armor.value
-        const newArmor = chara.items.armors.find(a => a.id === Number(aId))
-        setArmor(newArmor)
-
+        if(event.target.weapons.value !== "empty" ){
+            const wId = event.target.weapons.value
+            const newWeapon = chara.items.weapons.find(w => w.id === Number(wId))
+            setWeapon(newWeapon)
+            event.target.weapons.value = null
+        }
+        if (event.target.armor.value !== "empty"){
+            const aId = event.target.armor.value
+            const newArmor = chara.items.armors.find(a => a.id === Number(aId))
+            setArmor(newArmor)
+            event.target.weapons.value = null
+        }
     }
 
     const save = async () => {
@@ -75,22 +79,9 @@ const PlayMode = ({ chara }) => {
         dispatch(updateCharacter(chara.id, updated))
     }
 
-    const stat = (character, weapon, armor) => {
-        if (!weapon && !armor){
-            return character
-        }
-
-        let total = character
-        if (weapon) total += weapon
-        if(armor) total += armor
-
-        return total
-    }
-
     return(
         <div>
             <p>HP: {hp}/{stat(chara.hitpoints, weapon.hitpoints, armor.hitpoints)}</p>
-
             <form onSubmit={heal}>
                 <input name="heal" type="number" min="1"/>
                 <button type="submit">Heal</button>
@@ -99,14 +90,18 @@ const PlayMode = ({ chara }) => {
                 <input name="damage" type="number" min="1"/>
                 <button type="submit">Damage</button>
             </form>
+            <Stat chara={chara} weapon={weapon} armor={armor} />
 
-            <p>Equipment: {weapon.name} {armor.name}</p>
+            <p><b>Equipment</b></p>
+            
             <form onSubmit={equip}>
+            <p>Weapon: {weapon.name}</p>
                 <label htmlFor="weapons">Weapon: </label>
-                <Dropdown items="weapons" chara={chara} />
+                <Dropdown items="weapons" chara={chara} /><br></br>
+                <p>Armor: {armor.name}</p>
                 <label htmlFor="armor">Armor: </label>
                 <Dropdown items="armor" chara={chara} />
-                <button type="submit">Equip</button>
+                <br></br><button type="submit">Equip</button>
             </form>
 
             <button onClick={save}>save</button>
