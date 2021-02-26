@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import characterService from './services/characters'
 import { updateCharacter } from './reducers/characterReducer'
 import Stat, { stat } from './Stats'
+import NewItemForm from './NewItemForm'
 
 const Dropdown = ({ chara, items }) => {
     let rest, label
@@ -103,6 +104,7 @@ const PlayMode = ({ chara }) => {
                 <Dropdown items="armor" chara={chara} />
                 <br></br><button type="submit">Equip</button>
             </form>
+            <NewItemForm chara={chara} />
 
             <button onClick={save}>save</button>
         </div>
