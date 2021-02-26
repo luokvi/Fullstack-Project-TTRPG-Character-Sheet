@@ -39,6 +39,7 @@ const PlayMode = ({ chara }) => {
     const [ hp, setHitpoints ] = useState(chara.currentHitpoints)
     const [ weapon, setWeapon ] = useState(chara.equipment.weapon)
     const [ armor, setArmor ] = useState(chara.equipment.armor)
+    const [itemFormVisible, setVisible] = useState(false)
 
     const heal = ( event ) => {
         event.preventDefault()
@@ -69,6 +70,10 @@ const PlayMode = ({ chara }) => {
             setArmor(newArmor)
             event.target.weapons.value = null
         }
+    }
+
+    const toggleFormVisibility = () => {
+        setVisible(!itemFormVisible)
     }
 
     const save = async () => {
@@ -104,8 +109,15 @@ const PlayMode = ({ chara }) => {
                 <Dropdown items="armor" chara={chara} />
                 <br></br><button type="submit">Equip</button>
             </form>
-            <NewItemForm chara={chara} />
-
+            {
+                itemFormVisible
+                ? <div>
+                    <button onClick={toggleFormVisibility}>cancel</button>
+                    <NewItemForm chara={chara} />
+                </div>
+                : <button onClick={toggleFormVisibility}>add new item</button>
+            }
+            <br />
             <button onClick={save}>save</button>
         </div>
     )
