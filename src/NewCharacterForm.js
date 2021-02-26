@@ -25,6 +25,15 @@ const NewCharacterForm = () => {
             "magicArmor": event.target.mgcarmor.value,
             "hitpoints": event.target.hp.value,
             "currentHitpoints": event.target.hp.value,
+
+            "equipment": {
+                "weapon": { "name": " "},
+                "armor": { "name": " "}
+            },
+            "items": {
+                "weapons": [],
+                "armors": []
+            }
         }
         
         const newChara = await characterService.addCharacter(content)
