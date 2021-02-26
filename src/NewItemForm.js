@@ -37,13 +37,13 @@ const NewItemForm = ({ chara }) => {
             <p>Add new item</p>
 
             <label>Type:</label>
-            <input type="radio" name="item" value="weapon" />
-            <label>Weapon</label>
-            <input type="radio" name="item" value="armor" />
-            <label>Armor</label>
+            <select id="itemtype" name="item" required>
+                <option value="weapon">Weapon</option>
+                <option value="armor">Armor</option>
+            </select>
             <br/>
             <label htmlFor="name">Name:</label>
-            <input name="name" /> <br/>
+            <input name="name" required/> <br/>
 
             <label>Strength:</label>
             <input name="str" type="number" min="-20" max="20" defaultValue="0"/> <br/>

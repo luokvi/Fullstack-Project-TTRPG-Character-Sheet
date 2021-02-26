@@ -39,49 +39,48 @@ const NewCharacterForm = () => {
             <h3>New Character</h3>
             <form onSubmit={submit}>
                 <label>Name:</label>
-                <input name="name" type="text"/> <br/>
+                <input name="name" type="text" required/> <br/>
 
                 <label>Class:</label> <br/>
-                <input type="radio" name="class" value="cleric" />
-                <label>Cleric</label>
-                <input type="radio" name="class" value="mage" />
-                <label>Mage</label>
-                <input type="radio" name="class" value="soldier" />
-                <label>Soldier</label>
+                <select id="class" name="class" required>
+                    <option value="soldier">Soldier</option>
+                    <option value="cleric">Cleric</option>
+                    <option value="mage">Mage</option>
+                </select>
                 <br/>
 
                 <label>Level:</label>
-                <input name="lvl" type="number" min="1" max="99" /> <br/>
+                <input name="lvl" type="number" min="1" max="99" required/> <br/>
 
                 <label>Strength:</label>
-                <input name="str" type="number" min="1" max="20" /> <br/>
+                <input name="str" type="number" min="1" max="20" required/> <br/>
 
                 <label>Dexterity:</label>
-                <input name="dex" type="number" min="1" max="20"/> <br/>
+                <input name="dex" type="number" min="1" max="20" required/> <br/>
 
                 <label>Vitality:</label>
-                <input name="vit" type="number" min="1" max="20"/> <br/>
+                <input name="vit" type="number" min="1" max="20" required/> <br/>
 
                 <label>Magic:</label>
-                <input name="mgc" type="number" min="1" max="20"/> <br/>
+                <input name="mgc" type="number" min="1" max="20" required/> <br/>
 
                 <label>Luck:</label>
-                <input name="lck" type="number" min="1" max="20"/> <br/>
+                <input name="lck" type="number" min="1" max="20" required/> <br/>
 
                 <label>Attack:</label>
-                <input name="atk" type="number" min="1" max="20"/> <br/>
+                <input name="atk" type="number" min="1" max="20" required/> <br/>
 
                 <label>Armor:</label>
-                <input name="armor" type="number" min="1" max="20"/> <br/>
+                <input name="armor" type="number" min="1" max="20" required/> <br/>
 
                 <label>Magic Attack:</label>
-                <input name="mgcatk" type="number" min="1" max="20"/> <br/>
+                <input name="mgcatk" type="number" min="1" max="20" required/> <br/>
 
                 <label>Magic Armor:</label>
-                <input name="mgcarmor" type="number" min="1" max="20"/> <br/>
+                <input name="mgcarmor" type="number" min="1" max="20" required/> <br/>
 
                 <label>Hitpoints:</label>
-                <input name="hp" type="number" min="10" max="200"/> <br/>
+                <input name="hp" type="number" min="10" max="200" required/> <br/>
 
                 <button type="submit">Add</button>
             </form>
